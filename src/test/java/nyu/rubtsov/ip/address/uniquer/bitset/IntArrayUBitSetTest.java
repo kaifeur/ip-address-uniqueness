@@ -63,8 +63,22 @@ class IntArrayUBitSetTest {
         );
     }
 
-    @Test
-    void getValue() {
+    @RepeatedTest(100)
+    void shouldReturnBitValue() {
+        int uIntIndex = random.nextInt();
+        boolean setOrUnset = random.nextBoolean();
 
+        if (setOrUnset) {
+            bitSet.set(uIntIndex);
+        } else {
+            bitSet.unset(uIntIndex);
+        }
+
+        boolean bitValue = bitSet.getValue(uIntIndex);
+        Assertions.assertEquals(
+                setOrUnset,
+                bitValue,
+                "Bit value by index " + toUnsignedLong(uIntIndex) + " has unexpected value"
+        );
     }
 }
