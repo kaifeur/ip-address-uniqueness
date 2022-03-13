@@ -9,7 +9,8 @@ import nyu.rubtsov.ip.address.uniquer.counter.UniqueIpAddressCounter;
 
 public class Main {
 
-    private static final String HOW_TO = "Run program with arguments like `--file [your file with IPs]";
+    private static final String HOW_TO = "Run program with arguments like `--file [your file with IPs]. " +
+            "Also need to have max heap > 768m";
 
     public static void main(String[] args) throws IOException {
         if (args.length != 2) {
@@ -18,6 +19,10 @@ public class Main {
 
         if (!Objects.equals(args[0], "--file")) {
             throw new IllegalArgumentException(HOW_TO);
+        }
+
+        if (Runtime.getRuntime().maxMemory() / 1024 / 1024 < 768) {
+            throw new IllegalStateException("Need to have at least -Xmx768m");
         }
 
         String filePath = args[1];
@@ -29,6 +34,6 @@ public class Main {
         );
 
         long uniqueIpAddresses = counter.count();
-        System.out.println(uniqueIpAddresses);
+        System.out.println("Unique IPs: " + uniqueIpAddresses);
     }
 }
