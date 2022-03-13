@@ -1,5 +1,5 @@
 package nyu.rubtsov.ip.address.uniquer.converter;
 
-public interface IPv4AddressToUIntConverter {
+public interface IPAddressToUIntConverter {
     int convert(char[] ip);
 }

@@ -6,20 +6,20 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Path;
 import nyu.rubtsov.ip.address.uniquer.bitset.UIntBitSet;
-import nyu.rubtsov.ip.address.uniquer.converter.IPv4AddressToUIntConverter;
+import nyu.rubtsov.ip.address.uniquer.converter.IPAddressToUIntConverter;
 
 public class UniqueIpAddressCounter {
 
     private static final long MAX_UNIQUE_IP_COUNT = Integer.toUnsignedLong(-1);
 
     private final UIntBitSet bitSet;
-    private final IPv4AddressToUIntConverter converter;
+    private final IPAddressToUIntConverter converter;
 
     private final Path targetFile;
 
     public UniqueIpAddressCounter(
             UIntBitSet bitSet,
-            IPv4AddressToUIntConverter converter,
+            IPAddressToUIntConverter converter,
             Path targetFile
     ) {
         this.bitSet = bitSet;

@@ -4,7 +4,6 @@ public final class IpAddressConverter {
 
     private static final int IP_PART_SHIFT = 8;
     private static final char DOT = '.';
-    private static final int RADIX = 10;
     public static final char ZERO_CHAR = '0';
     public static final char NINE_CHAR = '9';
 
@@ -23,7 +22,11 @@ public final class IpAddressConverter {
             char currentChar = ip[i];
 
             if (currentChar == DOT) {
-                result |= currentPart << ((3 - dotIndex) * 8);
+                if (currentPart > 255) {
+                    throw new IllegalArgumentException("Invalid IP address: " + new String(ip));
+                }
+
+                result |= currentPart << ((3 - dotIndex) * IP_PART_SHIFT);
 
                 dotIndex++;
                 currentPart = 0;
