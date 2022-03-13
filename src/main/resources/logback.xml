@@ -5,10 +5,6 @@
         </encoder>
     </appender>
 
-    <logger name="nyu.rubtsov.ip.address.uniquer" level="DEBUG" additivity="false">
-        <appender-ref ref="STDOUT"/>
-    </logger>
-
     <root level="INFO">
         <appender-ref ref="STDOUT"/>
     </root>
