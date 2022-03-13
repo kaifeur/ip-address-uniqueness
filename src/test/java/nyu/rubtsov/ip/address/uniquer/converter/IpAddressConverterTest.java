@@ -3,6 +3,7 @@ package nyu.rubtsov.ip.address.uniquer.converter;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.Random;
+import nyu.rubtsov.ip.address.uniquer.utils.RandomIpAddressGenerator;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.RepeatedTest;
@@ -16,10 +17,7 @@ class IpAddressConverterTest {
 
     @BeforeEach
     void createIp() {
-        ip = random.nextInt(256) + "."
-                + random.nextInt(256) + "."
-                + random.nextInt(256) + "."
-                + random.nextInt(256);
+        ip = RandomIpAddressGenerator.nextIP();
     }
 
     @RepeatedTest(100)
