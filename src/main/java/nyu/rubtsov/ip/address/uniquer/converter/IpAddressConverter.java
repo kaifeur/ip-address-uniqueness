@@ -1,4 +1,4 @@
-package nyu.rubtsov.ip.address.uniquer.reader;
+package nyu.rubtsov.ip.address.uniquer.converter;
 
 public final class IpAddressConverter {
 

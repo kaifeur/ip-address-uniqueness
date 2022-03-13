@@ -1,8 +1,10 @@
-package nyu.rubtsov.ip.address.uniquer.reader;
+package nyu.rubtsov.ip.address.uniquer.counter;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.Random;
+import nyu.rubtsov.ip.address.uniquer.converter.IPv4AddressToUIntConverter;
+import nyu.rubtsov.ip.address.uniquer.converter.IpAddressConverter;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.RepeatedTest;
@@ -10,6 +12,7 @@ import org.junit.jupiter.api.RepeatedTest;
 class IpAddressConverterTest {
 
     private final Random random = new Random();
+    IPv4AddressToUIntConverter converter = IpAddressConverter::ipAsStringToUInt;
 
     String ip;
 
@@ -21,9 +24,9 @@ class IpAddressConverterTest {
                 + random.nextInt(256);
     }
 
-    @RepeatedTest(1000000)
+    @RepeatedTest(100)
     void ipAsStringToUInt() throws UnknownHostException {
-        int ipAsInt = IpAddressConverter.ipAsStringToUInt(ip.toCharArray());
+        int ipAsInt = converter.convert(ip.toCharArray());
 
         int ipAsIntWithInetAddress = ipAsIntWithInetAddress();
 
