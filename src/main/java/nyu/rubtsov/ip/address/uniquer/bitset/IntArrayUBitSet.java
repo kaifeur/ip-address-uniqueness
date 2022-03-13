@@ -4,7 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import static java.lang.Integer.toUnsignedLong;
-import static nyu.rubtsov.ip.address.uniquer.utils.BinaryStringUtils.toBinaryString;
+import static nyu.rubtsov.ip.address.uniquer.bitset.utils.BinaryStringUtils.toBinaryString;
 
 public class IntArrayUBitSet implements UIntBitSet {
 

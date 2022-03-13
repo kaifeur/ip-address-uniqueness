@@ -1,4 +1,4 @@
-package nyu.rubtsov.ip.address.uniquer.utils;
+package nyu.rubtsov.ip.address.uniquer.bitset.utils;
 
 public final class BinaryStringUtils {
     private BinaryStringUtils() {
