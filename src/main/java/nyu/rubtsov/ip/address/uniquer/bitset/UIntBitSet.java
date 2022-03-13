@@ -3,7 +3,7 @@ package nyu.rubtsov.ip.address.uniquer.bitset;
 public interface UIntBitSet {
 
     /**
-     * Setting a bit by index {@param uIntIndex} to 1.
+     * Set the bit by index {@param uIntIndex} to 1.
      *
      * @param uIntIndex bit index as unsigned 32-bit integer
      * @return true if bit's value was changed, false otherwise
@@ -11,10 +11,18 @@ public interface UIntBitSet {
     boolean set(int uIntIndex);
 
     /**
-     * Setting a bit by index {@param uIntIndex} to 0.
+     * Unset the bit by index {@param uIntIndex} to 0.
      *
      * @param uIntIndex bit index as unsigned 32-bit integer
      * @return true if bit's value was changed, false otherwise
      */
     boolean unset(int uIntIndex);
+
+    /**
+     * Get bit's value by index {@param uIntIndex}.
+     *
+     * @param uIntIndex bit index as unsigned 32-bit integer
+     * @return true if bit is set to 1, false otherwise
+     */
+    boolean getValue(int uIntIndex);
 }
