@@ -1,10 +1,8 @@
-package nyu.rubtsov.ip.address.uniquer.counter;
+package nyu.rubtsov.ip.address.uniquer.converter;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.Random;
-import nyu.rubtsov.ip.address.uniquer.converter.IPAddressToUIntConverter;
-import nyu.rubtsov.ip.address.uniquer.converter.IpAddressConverter;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.RepeatedTest;
