@@ -12,9 +12,11 @@ public class IntArrayUBitSet implements UIntBitSet {
 
     public static final int MAX_BIT_COUNT = -1; // 2^32
 
-    private static final int CONTAINER_INDEX_MASK = (MAX_BIT_COUNT >>> 5) << 5; // left 27 bits in an unsigned int
-    private static final int BIT_INDEX_MASK = (1 << 5) - 1; // right 5 bits in an unsigned int
-    private static final int INT_ARRAY_SIZE = MAX_BIT_COUNT >>> 5; // 2^32 bits at all, each int can handle 2^5 bits
+    private static final int BITS_SHIFT = 5;
+
+    private static final int CONTAINER_INDEX_MASK = (MAX_BIT_COUNT >>> BITS_SHIFT) << BITS_SHIFT; // left 27 bits in an unsigned int
+    private static final int BIT_INDEX_MASK = (1 << BITS_SHIFT) - 1; // right 5 bits in an unsigned int
+    private static final int INT_ARRAY_SIZE = MAX_BIT_COUNT >>> BITS_SHIFT; // 2^32 bits at all, each int can handle 2^5 bits
 
     private final int[] bits = new int[INT_ARRAY_SIZE];
 
@@ -94,7 +96,7 @@ public class IntArrayUBitSet implements UIntBitSet {
     }
 
     private int getIntContainerIndex(int uIntIndex) {
-        return uIntIndex & CONTAINER_INDEX_MASK;
+        return (uIntIndex & CONTAINER_INDEX_MASK) >>> BITS_SHIFT;
     }
 
     private static int getBitIndex(int uIntIndex) {
