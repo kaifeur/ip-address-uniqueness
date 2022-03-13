@@ -33,6 +33,14 @@ public class IntArrayUBitSet implements UIntBitSet {
         return setBitTo(uIntIndex, false);
     }
 
+    @Override
+    public boolean getValue(int uIntIndex) {
+        int intContainer = getIntContainer(getIntContainerIndex(uIntIndex));
+        int bitIndex = getBitIndex(uIntIndex);
+
+        return getBitValue(intContainer, bitIndex);
+    }
+
     /**
      * Setting bit to the specific value – 1 or 0.
      *
